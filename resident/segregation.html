@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waste Segregation Guide – WasteMS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/css/style.css" rel="stylesheet" />
+  <style>
+    .segregation-hero {
+      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+      color: #fff;
+      border-radius: 14px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(27, 94, 32, 0.15);
+    }
+  </style>
+</head>
+<body>
+<div class="d-flex">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <a href="dashboard.html" class="sidebar-brand text-decoration-none">
+      <i class="bi bi-recycle brand-icon"></i>
+      <div>
+        <div class="brand-text">WasteMS</div>
+        <div class="brand-sub">Waste Management System</div>
+      </div>
+    </a>
+    <ul class="sidebar-nav">
+      <li class="sidebar-section-label">My Account</li>
+      <li class="nav-item">
+        <a href="dashboard.html" class="nav-link">
+          <i class="bi bi-house"></i><span>My Dashboard</span>
+        </a>
+      </li>
+      <li class="sidebar-section-label">Reports</li>
+      <li class="nav-item">
+        <a href="submit-report.html" class="nav-link">
+          <i class="bi bi-plus-circle"></i><span>Submit a Report</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="my-reports.html" class="nav-link">
+          <i class="bi bi-list-check"></i><span>My Reports</span>
+        </a>
+      </li>
+      <li class="sidebar-section-label">Community</li>
+      <li class="nav-item">
+        <a href="schedules.html" class="nav-link">
+          <i class="bi bi-calendar3"></i><span>Collection Schedule</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="segregation.html" class="nav-link active">
+          <i class="bi bi-recycle"></i><span>Segregation Guide</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="announcements.html" class="nav-link">
+          <i class="bi bi-megaphone"></i><span>Announcements</span>
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <i class="bi bi-person-circle me-1"></i>Resident Portal
+    </div>
+  </nav>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-sm btn-light" id="sidebarToggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+          <i class="bi bi-list fs-5"></i>
+        </button>
+        <h5 class="page-title">Waste Segregation Guide</h5>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <div class="text-end d-none d-md-block">
+          <div class="user-name" id="userName">Loading…</div>
+          <div class="user-info">Resident</div>
+        </div>
+        <button class="btn btn-sm btn-outline-danger" onclick="AUTH.logout()">
+          <i class="bi bi-box-arrow-right me-1"></i>Logout
+        </button>
+      </div>
+    </nav>
+
+    <!-- Content Area -->
+    <div class="content-area">
+
+      <!-- Hero Header -->
+      <div class="segregation-hero">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <h3 class="fw-bold mb-2">Community Waste Segregation Guidelines</h3>
+            <p class="mb-0 text-white-50 fs-6">
+              Proper waste segregation starts at home. By separating our trash into designated categories, we help protect community public health, reduce landfill buildup, and ensure compliant municipal waste processing.
+            </p>
+          </div>
+          <div class="col-lg-4 text-center d-none d-lg-block">
+            <i class="bi bi-recycle display-1 text-white opacity-75"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories Container -->
+      <h5 class="fw-bold text-dark mb-3"><i class="bi bi-tags me-2 text-success"></i>Official Waste Classifications</h5>
+      <div class="row g-4 mb-5" id="categoriesGrid">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Best Practice Tips -->
+      <div class="panel-card p-4">
+        <h5 class="fw-bold text-dark mb-3"><i class="bi bi-lightbulb text-warning me-2"></i>Practical Waste Management Tips for Households</h5>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="border rounded p-3 h-100 bg-light">
+              <div class="fs-3 text-success mb-2"><i class="bi bi-droplet-slash"></i></div>
+              <h6 class="fw-bold">Rinse Recyclables</h6>
+              <p class="text-muted small mb-0">Rinse plastic bottles, soda cans, and jars before throwing them into your recyclables bin to prevent foul smells and pests.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="border rounded p-3 h-100 bg-light">
+              <div class="fs-3 text-primary mb-2"><i class="bi bi-flower1"></i></div>
+              <h6 class="fw-bold">Compost Organic Waste</h6>
+              <p class="text-muted small mb-0">Vegetable and fruit peels can be placed into garden compost pits instead of garbage bags to nourish household plants.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="border rounded p-3 h-100 bg-light">
+              <div class="fs-3 text-danger mb-2"><i class="bi bi-shield-exclamation"></i></div>
+              <h6 class="fw-bold">Separate Hazardous Items</h6>
+              <p class="text-muted small mb-0">Never combine broken mercury bulbs or leaking batteries with regular trash. Save them for the monthly hazardous waste collection.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="border rounded p-3 h-100 bg-light">
+              <div class="fs-3 text-warning mb-2"><i class="bi bi-box2"></i></div>
+              <h6 class="fw-bold">Flatten Cardboard Boxes</h6>
+              <p class="text-muted small mb-0">Break down and fold bulky carton and cereal boxes to maximize garbage storage space and make transport easier.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content-area -->
+  </div><!-- /main-wrapper -->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>window.ROOT_PATH = '../';</script>
+<script src="../assets/js/db.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script>
+  let session = null;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    DB.init();
+    session = AUTH.requireAuth(['resident']);
+    if (!session) return;
+
+    document.getElementById('userName').textContent = session.name;
+    renderCategories();
+  });
+
+  function renderCategories() {
+    const list = DB.getCategories();
+    const grid = document.getElementById('categoriesGrid');
+    grid.innerHTML = '';
+
+    if (list.length === 0) {
+      grid.innerHTML = '<div class="col-12 text-muted">No waste categories published yet.</div>';
+      return;
+    }
+
+    list.forEach(cat => {
+      const color = cat.color || '#2e7d32';
+      const col = document.createElement('div');
+      col.className = 'col-md-6 col-lg-3';
+      col.innerHTML = `
+        <div class="category-card h-100 d-flex flex-column" style="border-color: ${color}; background: ${color}08;">
+          <div class="cat-icon" style="color: ${color};">
+            <i class="bi ${cat.icon || 'bi-recycle'}"></i>
+          </div>
+          <h5 class="fw-bold mb-2" style="color: ${color};">${cat.name}</h5>
+          <p class="text-muted small mb-3 flex-grow-1">${cat.description}</p>
+          <div class="border-top pt-2 mt-auto">
+            <div class="fw-bold text-dark small mb-1">Examples:</div>
+            <div class="text-secondary small">${cat.examples || '—'}</div>
+          </div>
+        </div>
+      `;
+      grid.appendChild(col);
+    });
+  }
+</script>
+</body>
+</html>
